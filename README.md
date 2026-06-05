@@ -1,8 +1,8 @@
 # tylerallenmcdonald.com
 
-Personal website for Tyler Allen McDonald — BI analyst, photographer, surfer.
+Personal website for myself.
 
-Built with plain HTML and CSS. Hosted on GitHub Pages.
+Built with plain HTML and CSS, with help from various AI tools. Hosted on GitHub Pages.
 
 ---
 
