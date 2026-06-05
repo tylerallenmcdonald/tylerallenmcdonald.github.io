@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me — Tyler Allen McDonald</title>
+  <meta name="description" content="About Tyler Allen McDonald — BI analyst, photographer, surfer, cyclist." />
+
+  <!-- Path back to stylesheet. The ../ means "go up one folder" since
+       this file is inside the pages/ folder. -->
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <!-- NAVIGATION
+       Note: links to other pages use ../ to go up from pages/ to root.
+       The "About Me" link has class="active" since that's this page. -->
+  <nav>
+    <div class="container">
+      <a href="../index.html" class="nav-name">Tyler Allen McDonald</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="about.html" class="active">About Me</a></li>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="resume.html">Résumé</a></li>
+        <li><a href="bookmarks.html">Bookmarks</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <main class="page-content">
+    <div class="container">
+
+      <!-- Page header -->
+      <p class="label">About Me</p>
+      <h1>Who I am</h1>
+
+      <!-- Two-column layout: main content left, sidebar right -->
+      <div class="about-grid">
+
+        <!-- ============================================================
+             LEFT COLUMN — Main bio sections
+             Each .about-section is one part of your story.
+             Write your own text by replacing the placeholder paragraphs.
+
+             TO ADD A NEW SECTION:
+             Copy one entire <div class="about-section"> block and paste
+             it below the others. Change the <h2> and write your content.
+
+             TO REMOVE A SECTION:
+             Delete the entire <div class="about-section"> block.
+             ============================================================ -->
+        <div>
+
+          <!-- SECTION 1: Background / Origin story -->
+          <div class="about-section">
+            <h2>Background</h2>
+            <!-- Replace this placeholder with your own text.
+                 Write in whatever voice feels natural to you.
+                 There's no right length — 2 paragraphs is plenty. -->
+            <p class="placeholder-text">
+              Write about where you're from, how you got into data and BI,
+              and what drew you to this kind of work. This is a good place
+              for the origin story — what path led you here?
+            </p>
+          </div>
+
+          <!-- SECTION 2: How you work / What you care about professionally -->
+          <div class="about-section">
+            <h2>How I think about data</h2>
+            <!-- Replace this with your own take on your work and approach. -->
+            <p class="placeholder-text">
+              What's your philosophy on data and analysis? What kinds of
+              problems do you find most interesting? What does good BI work
+              look like to you? This is the section that lets employers
+              understand how you think, not just what you've done.
+            </p>
+          </div>
+
+          <!-- SECTION 3: Outside work / Personal interests -->
+          <div class="about-section">
+            <h2>Outside work</h2>
+            <!-- Talk about surfing, photography, bike travel, music —
+                 whatever feels right to share. Keep it genuine. -->
+            <p class="placeholder-text">
+              Write about what you do when you're not looking at dashboards.
+              Surfing, bicycle travel, photography, music — whatever you want
+              to share. This is what makes the site feel human rather than
+              like a resume.
+            </p>
+
+            <!-- Photo grid — 4 photos from your travels or hobbies.
+                 TO ADD REAL PHOTOS:
+                 1. Put your images in a /photos folder at the project root
+                 2. Replace each <div class="photo-frame"> with:
+                    <img src="../photos/your-photo.jpg" alt="description" />
+                 The grid will size them automatically. -->
+            <div class="photo-grid">
+              <div class="photo-frame">Photo</div>
+              <div class="photo-frame">Photo</div>
+              <div class="photo-frame">Photo</div>
+              <div class="photo-frame">Photo</div>
+            </div>
+            <!-- Optional caption below the photo grid -->
+            <p style="font-size: 0.78rem; color: var(--ink-faint); margin-top: 0.75rem;">
+              <!-- Write a caption, e.g. "Pacific Coast, 2024" -->
+              Photos — add a caption here.
+            </p>
+          </div>
+
+          <!-- SECTION 4: Currently / What you're thinking about now -->
+          <div class="about-section">
+            <h2>Currently</h2>
+            <!-- Update this whenever something changes — it keeps the site feeling alive. -->
+            <p class="placeholder-text">
+              What are you working on, reading, listening to, or thinking
+              about right now? This section is meant to be updated regularly.
+              It gives visitors a sense of where your head is at.
+            </p>
+          </div>
+
+        </div><!-- end left column -->
+
+
+        <!-- ============================================================
+             RIGHT COLUMN — Sidebar
+             Quick-reference info: interests, location, links.
+             ============================================================ -->
+        <div>
+
+          <!-- Interests list -->
+          <div class="sidebar-block">
+            <p class="label">Interests</p>
+            <!-- To add or remove an interest, add or delete a <li> item -->
+            <ul class="interests-list">
+              <li>Surfing</li>
+              <li>Bicycle travel</li>
+              <li>Photography</li>
+              <li>Music</li>
+              <li>Data visualization</li>
+              <li>Business intelligence</li>
+            </ul>
+          </div>
+
+          <!-- Location -->
+          <div class="sidebar-block">
+            <p class="label">Based in</p>
+            <p style="font-size: 0.9rem; color: var(--ink-muted); margin: 0;">New York, NY</p>
+          </div>
+
+          <!-- Links to other profiles -->
+          <div class="sidebar-block">
+            <p class="label">Elsewhere</p>
+            <!-- Update these with your real URLs -->
+            <p style="margin-bottom: 0.4rem;">
+              <a href="https://github.com/tylerallenmcdonald" target="_blank" rel="noopener" style="font-size: 0.9rem;">GitHub</a>
+            </p>
+            <p style="margin-bottom: 0.4rem;">
+              <a href="https://linkedin.com/in/tylerallenmcdonald" target="_blank" rel="noopener" style="font-size: 0.9rem;">LinkedIn</a>
+            </p>
+            <p style="margin-bottom: 0;">
+              <a href="mailto:tyleramcdonald1@gmail.com" style="font-size: 0.9rem;">tyleramcdonald1@gmail.com</a>
+            </p>
+          </div>
+
+        </div><!-- end right column / sidebar -->
+
+      </div><!-- end about-grid -->
+
+    </div>
+  </main>
+
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Tyler Allen McDonald</p>
+      <div class="footer-links">
+        <a href="https://github.com/tylerallenmcdonald" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/tylerallenmcdonald" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    function toggleNav() {
+      document.getElementById('nav-links').classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>

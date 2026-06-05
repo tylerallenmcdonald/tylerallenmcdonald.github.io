@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bookmarks — Tyler Allen McDonald</title>
+  <meta name="description" content="Things Tyler Allen McDonald finds interesting — articles, music, art, videos, and more." />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <a href="../index.html" class="nav-name">Tyler Allen McDonald</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="resume.html">Résumé</a></li>
+        <li><a href="bookmarks.html" class="active">Bookmarks</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <main class="page-content">
+    <div class="container">
+
+      <p class="label">Bookmarks</p>
+      <h1>Things I find interesting</h1>
+      <p style="color: var(--ink-muted); max-width: 500px; margin-bottom: 0; font-size: 0.95rem;">
+        Articles, music, art, videos, and anything else worth sharing.
+        Not my work — just things I've come across and wanted to pass along.
+      </p>
+
+      <!-- ============================================================
+           FILTER BUTTONS
+           Clicking a filter shows only bookmarks of that type.
+           The JavaScript at the bottom handles the filtering logic.
+
+           TO ADD A NEW CATEGORY:
+           1. Add a new <button> here with data-filter="yourcategory"
+           2. Add a matching <span class="bookmark-type yourcategory"> in the item
+           3. Add a color for it in style.css under "Category color coding"
+           ============================================================ -->
+      <div class="bookmark-filters">
+        <button class="filter-btn active" data-filter="all" onclick="filterBookmarks('all', this)">All</button>
+        <button class="filter-btn" data-filter="article" onclick="filterBookmarks('article', this)">Articles</button>
+        <button class="filter-btn" data-filter="music" onclick="filterBookmarks('music', this)">Music</button>
+        <button class="filter-btn" data-filter="video" onclick="filterBookmarks('video', this)">Video</button>
+        <button class="filter-btn" data-filter="art" onclick="filterBookmarks('art', this)">Art</button>
+        <button class="filter-btn" data-filter="other" onclick="filterBookmarks('other', this)">Other</button>
+      </div>
+
+
+      <!-- ============================================================
+           BOOKMARK LIST
+           Each bookmark is a .bookmark-item block.
+
+           TO ADD A NEW BOOKMARK:
+           Copy one .bookmark-item block and paste it at the TOP of
+           the list (newest first). Then update:
+           - The data-type attribute (must match a filter category)
+           - The class on .bookmark-type (article / music / video / art / other)
+           - The category label text
+           - The href and title of the link
+           - The source name
+           - The note (optional — delete the .bookmark-note <p> if not needed)
+           - The date
+
+           TO REMOVE A BOOKMARK:
+           Delete the entire .bookmark-item block.
+           ============================================================ -->
+      <div class="bookmarks-list">
+
+        <!-- ---- BOOKMARK ITEM — duplicate this block for each link ---- -->
+
+        <!-- EXAMPLE: Article -->
+        <div class="bookmark-item" data-type="article">
+          <!-- Category tag — change class to match the type (article/music/video/art/other) -->
+          <span class="bookmark-type article">Article</span>
+          <div>
+            <!-- The link — update href and title text -->
+            <a class="bookmark-title" href="https://example.com" target="_blank" rel="noopener">
+              Article title goes here
+            </a>
+            <!-- Where it's from (publication, website, artist name, etc.) -->
+            <p class="bookmark-source">Source name — e.g. The Atlantic, Pitchfork, YouTube</p>
+            <!-- Optional: a sentence about why you're sharing it.
+                 Delete this <p> tag if you don't want to add a note. -->
+            <p class="bookmark-note">A short note about why this is interesting or worth reading.</p>
+            <!-- When you added it -->
+            <p class="bookmark-date">June 2026</p>
+          </div>
+        </div>
+
+        <!-- EXAMPLE: Music -->
+        <div class="bookmark-item" data-type="music">
+          <span class="bookmark-type music">Music</span>
+          <div>
+            <a class="bookmark-title" href="https://example.com" target="_blank" rel="noopener">
+              Album or song title goes here
+            </a>
+            <p class="bookmark-source">Artist Name</p>
+            <p class="bookmark-note">What draws you to this — the mood, the production, how you found it.</p>
+            <p class="bookmark-date">June 2026</p>
+          </div>
+        </div>
+
+        <!-- EXAMPLE: Video -->
+        <div class="bookmark-item" data-type="video">
+          <span class="bookmark-type video">Video</span>
+          <div>
+            <a class="bookmark-title" href="https://example.com" target="_blank" rel="noopener">
+              Video title goes here
+            </a>
+            <p class="bookmark-source">YouTube / Vimeo / etc.</p>
+            <!-- No note on this one — the .bookmark-note <p> is omitted -->
+            <p class="bookmark-date">May 2026</p>
+          </div>
+        </div>
+
+        <!-- EXAMPLE: Art -->
+        <div class="bookmark-item" data-type="art">
+          <span class="bookmark-type art">Art</span>
+          <div>
+            <a class="bookmark-title" href="https://example.com" target="_blank" rel="noopener">
+              Artwork or project title
+            </a>
+            <p class="bookmark-source">Artist or creator name</p>
+            <p class="bookmark-note">What you find compelling about it.</p>
+            <p class="bookmark-date">May 2026</p>
+          </div>
+        </div>
+
+        <!-- EXAMPLE: Other -->
+        <div class="bookmark-item" data-type="other">
+          <span class="bookmark-type other">Other</span>
+          <div>
+            <a class="bookmark-title" href="https://example.com" target="_blank" rel="noopener">
+              Anything that doesn't fit a category
+            </a>
+            <p class="bookmark-source">Source</p>
+            <p class="bookmark-date">April 2026</p>
+          </div>
+        </div>
+        <!-- ---- END BOOKMARK ITEM ---- -->
+
+      </div><!-- end bookmarks-list -->
+
+    </div>
+  </main>
+
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Tyler Allen McDonald</p>
+      <div class="footer-links">
+        <a href="https://github.com/tylerallenmcdonald" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/tylerallenmcdonald" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    // Sets the copyright year automatically
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile nav toggle
+    function toggleNav() {
+      document.getElementById('nav-links').classList.toggle('open');
+    }
+
+    // ============================================================
+    // BOOKMARK FILTER FUNCTION
+    // When a filter button is clicked, this function:
+    // 1. Marks the clicked button as "active" (highlighted)
+    // 2. Shows all bookmark items, or hides ones that don't match
+    //
+    // You don't need to edit this — it works automatically based
+    // on the data-type attribute on each .bookmark-item.
+    // ============================================================
+    function filterBookmarks(type, btn) {
+      // Remove "active" class from all filter buttons
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      // Add "active" class to the button that was clicked
+      btn.classList.add('active');
+
+      // Show or hide each bookmark based on its data-type
+      document.querySelectorAll('.bookmark-item').forEach(item => {
+        if (type === 'all' || item.dataset.type === type) {
+          item.style.display = 'grid'; // Show it
+        } else {
+          item.style.display = 'none'; // Hide it
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

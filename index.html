@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Page title — shows in browser tab and search results -->
+  <title>Tyler Allen McDonald</title>
+
+  <!-- Description — shows in Google search results under your site name -->
+  <meta name="description" content="Tyler Allen McDonald — Business Intelligence Analyst based in New York." />
+
+  <!-- Links to the stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+       The nav bar appears on every page. The current page's link
+       has class="active" so it gets the orange underline.
+       To add a new page, copy a <li> item and update the href and text.
+       ============================================================ -->
+  <nav>
+    <div class="container">
+
+      <!-- Your name — links back to home from any page -->
+      <a href="index.html" class="nav-name">Tyler Allen McDonald</a>
+
+      <!-- Mobile hamburger button — only visible on small screens -->
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </button>
+
+      <!-- Navigation links -->
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="pages/about.html">About Me</a></li>
+        <li><a href="pages/work.html">Work</a></li>
+        <li><a href="pages/resume.html">Résumé</a></li>
+        <li><a href="pages/bookmarks.html">Bookmarks</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- ============================================================
+       INTRO SECTION
+       The main headline and welcome text.
+       ============================================================ -->
+  <section class="home-intro">
+    <div class="container">
+
+      <!-- Small text above the headline — update with your location/role -->
+      <p class="eyebrow">Business Intelligence Analyst — New York</p>
+
+      <!-- Main headline. The <span class="highlight"> makes "Tyler" blue.
+           To change the headline, edit the text between the <h1> tags. -->
+      <h1>Hi, I'm <span class="highlight">Tyler.</span><br>I work with data.</h1>
+
+      <!-- Short welcome message. Keep this brief — 2-3 sentences max. -->
+      <p class="welcome-text">
+        Welcome to my corner of the internet. This is a space for my professional
+        work, ongoing projects, and things I find interesting along the way.
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       LOWER SECTION — Contact info + Photo
+       Two columns: contact info on the left, your photo on the right.
+       ============================================================ -->
+  <section class="home-lower">
+    <div class="container" style="display: contents;"><!-- contents lets the grid span the container -->
+    </div>
+  </section>
+
+  <!-- Using a full-width container for the two-column layout -->
+  <div style="max-width: var(--max-width); margin: 0 auto; padding: 3rem 2rem 5rem;">
+    <div class="home-lower" style="padding: 0;">
+
+      <!-- LEFT COLUMN: Contact info -->
+      <div class="contact-block">
+        <p class="contact-title">Get in touch</p>
+
+        <!-- Each .contact-row is one line of contact info.
+             To add a new contact method, copy a .contact-row block.
+             To remove one, delete the whole .contact-row block. -->
+
+        <div class="contact-row">
+          <span class="contact-key">Email</span>
+          <!-- Update the href="mailto:..." and the visible text with your email -->
+          <a class="contact-val" href="mailto:tyleramcdonald1@gmail.com">tyleramcdonald1@gmail.com</a>
+        </div>
+
+        <div class="contact-row">
+          <span class="contact-key">LinkedIn</span>
+          <!-- Update the href with your LinkedIn URL -->
+          <a class="contact-val" href="https://linkedin.com/in/tylerallenmcdonald" target="_blank" rel="noopener">
+            linkedin.com/in/tylerallenmcdonald
+          </a>
+        </div>
+
+        <div class="contact-row">
+          <span class="contact-key">GitHub</span>
+          <!-- Update the href with your GitHub URL -->
+          <a class="contact-val" href="https://github.com/tylerallenmcdonald" target="_blank" rel="noopener">
+            github.com/tylerallenmcdonald
+          </a>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN: Your photo
+           When you have a photo ready:
+           1. Put the image file in a folder called "photos/" at the root of the project
+           2. Delete the entire <div class="photo-placeholder"> block below
+           3. Replace it with: <img src="photos/your-filename.jpg" alt="Tyler Allen McDonald" />
+           The CSS will handle sizing automatically. -->
+      <div class="photo-block">
+        <div class="photo-placeholder">
+          <!-- This SVG is a simple person icon — it disappears when you add a real photo -->
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+          </svg>
+          <span>Your photo here</span>
+        </div>
+        <!-- Optional: add a caption below your photo -->
+        <!-- <p class="photo-caption">Caption goes here</p> -->
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       FOOTER
+       Appears on every page. Update the links if your LinkedIn
+       or GitHub URLs are different.
+       ============================================================ -->
+  <footer>
+    <div class="container">
+      <!-- Copyright year updates automatically via JavaScript below -->
+      <p>© <span id="year"></span> Tyler Allen McDonald</p>
+      <div class="footer-links">
+        <a href="https://github.com/tylerallenmcdonald" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/tylerallenmcdonald" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ============================================================
+       JAVASCRIPT
+       Small scripts that add interactivity.
+       You don't need to touch these unless you want to learn more.
+       ============================================================ -->
+  <script>
+    // Automatically sets the copyright year to the current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Toggles the mobile nav menu open and closed
+    // Called by the onclick on the hamburger button above
+    function toggleNav() {
+      document.getElementById('nav-links').classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>

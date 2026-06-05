@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work — Tyler Allen McDonald</title>
+  <meta name="description" content="BI projects and data analysis work by Tyler Allen McDonald." />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <a href="../index.html" class="nav-name">Tyler Allen McDonald</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="work.html" class="active">Work</a></li>
+        <li><a href="resume.html">Résumé</a></li>
+        <li><a href="bookmarks.html">Bookmarks</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <main class="page-content">
+    <div class="container">
+
+      <p class="label">Portfolio</p>
+      <h1>Work &amp; Projects</h1>
+      <p style="color: var(--ink-muted); max-width: 500px; margin-bottom: 0; font-size: 0.95rem;">
+        Analysis, dashboards, and data experiments. Each project includes a
+        description of the problem, approach, and outcome — plus a link to the
+        code on GitHub.
+      </p>
+
+      <hr class="rule" />
+
+      <!-- ============================================================
+           PROJECT LIST
+           Each project is a .project-card block.
+
+           TO ADD A NEW PROJECT:
+           Copy one entire .project-card block (from the opening
+           <div class="project-card"> to its closing </div>) and paste
+           it above the others so newest projects appear first.
+           Then update the title, description, tags, year, and GitHub link.
+
+           TO REMOVE A PROJECT:
+           Delete the entire .project-card block.
+           ============================================================ -->
+      <div class="projects-list">
+
+        <!-- ---- PROJECT CARD — duplicate this block for each project ---- -->
+        <div class="project-card">
+          <div>
+
+            <!-- Tags: tools or categories used in this project.
+                 Add or remove <span class="tag"> items as needed.
+                 Examples: SQL, Python, Tableau, Power BI, dbt, Looker, R -->
+            <div class="project-meta">
+              <span class="tag">SQL</span>
+              <span class="tag">Tableau</span>
+            </div>
+
+            <!-- Project title -->
+            <h3>Project title goes here</h3>
+
+            <!-- 2-3 sentence description: what problem, what data, what output -->
+            <p>
+              A brief description of the project — what problem you were solving,
+              what data you worked with, and what the output was. Two or three
+              sentences is enough before someone clicks through.
+            </p>
+
+            <!-- Link to the GitHub repo for this project.
+                 Update href to point to the specific repo, not just your profile. -->
+            <a class="project-link" href="https://github.com/tylerallenmcdonald" target="_blank" rel="noopener">
+              View on GitHub →
+            </a>
+
+          </div>
+
+          <!-- Year this project was completed -->
+          <span class="project-year">2025</span>
+        </div>
+        <!-- ---- END PROJECT CARD ---- -->
+
+
+        <!-- Placeholder card — shown while portfolio is being built.
+             Delete this entire block once you have real projects. -->
+        <div class="project-card" style="opacity: 0.4;">
+          <div>
+            <div class="project-meta">
+              <span class="tag">Coming soon</span>
+            </div>
+            <h3>More projects on the way</h3>
+            <p>
+              This section will grow as projects are built and documented.
+              Check back, or follow along on GitHub.
+            </p>
+          </div>
+          <span class="project-year">—</span>
+        </div>
+
+      </div><!-- end projects-list -->
+
+
+      <!-- GitHub callout box -->
+      <div class="github-callout">
+        <p class="label">On GitHub</p>
+        <p>
+          All project code lives at
+          <a href="https://github.com/tylerallenmcdonald" target="_blank" rel="noopener">
+            github.com/tylerallenmcdonald
+          </a>.
+          Each repository includes a README walking through the context,
+          methodology, and any relevant notes.
+        </p>
+        <a href="https://github.com/tylerallenmcdonald" target="_blank" rel="noopener" class="btn btn-blue">
+          View GitHub profile
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Tyler Allen McDonald</p>
+      <div class="footer-links">
+        <a href="https://github.com/tylerallenmcdonald" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/tylerallenmcdonald" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    function toggleNav() {
+      document.getElementById('nav-links').classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>

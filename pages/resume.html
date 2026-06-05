@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Résumé — Tyler Allen McDonald</title>
+  <meta name="description" content="Résumé for Tyler Allen McDonald, business intelligence analyst." />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <a href="../index.html" class="nav-name">Tyler Allen McDonald</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="resume.html" class="active">Résumé</a></li>
+        <li><a href="bookmarks.html">Bookmarks</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <main class="page-content">
+    <div class="container">
+
+      <!-- Resume header: name, title, and download button -->
+      <div class="resume-header">
+        <div>
+          <p class="label">Résumé</p>
+          <h1 style="margin-bottom: 0.25rem;">Tyler Allen McDonald</h1>
+          <p style="color: var(--ink-muted); font-size: 1rem; margin: 0;">Business Intelligence Analyst</p>
+        </div>
+
+        <!-- PDF download button.
+             TO ADD YOUR PDF:
+             1. Save your resume as a PDF
+             2. Put it in the root folder (same level as index.html)
+             3. Rename it to "tyler-allen-mcdonald-resume.pdf"
+                or update the href below to match your filename -->
+        <a href="../tyler-allen-mcdonald-resume.pdf" class="btn" download>
+          Download PDF
+        </a>
+      </div>
+
+      <hr class="rule" />
+
+
+      <!-- ============================================================
+           EXPERIENCE
+           Each job is a .resume-entry block.
+
+           TO ADD A JOB:
+           Copy one .resume-entry block and paste it below the others
+           (or above, if it's your most recent role — keep newest first).
+           Update the job title, company, dates, and bullet points.
+
+           TO REMOVE A JOB:
+           Delete the entire .resume-entry block.
+           ============================================================ -->
+      <div class="resume-section">
+        <p class="label">Experience</p>
+
+        <!-- ---- JOB ENTRY — duplicate this block for each role ---- -->
+        <div class="resume-entry">
+          <div>
+            <!-- Job title -->
+            <h3>Job Title</h3>
+            <!-- Company name and location -->
+            <p class="company">Company Name &middot; New York, NY</p>
+            <!-- Bullet points — focus on outcomes, not just tasks.
+                 Add or remove <li> items as needed. -->
+            <ul>
+              <li>Describe a key responsibility or accomplishment</li>
+              <li>Quantify impact where possible — numbers stand out</li>
+              <li>Focus on what changed or improved because of your work</li>
+            </ul>
+          </div>
+          <!-- Date range — shown on the right side -->
+          <span class="dates">20XX – Present</span>
+        </div>
+
+        <!-- Second job entry -->
+        <div class="resume-entry">
+          <div>
+            <h3>Previous Job Title</h3>
+            <p class="company">Previous Company &middot; City, ST</p>
+            <ul>
+              <li>Key responsibility or achievement</li>
+              <li>Another accomplishment</li>
+            </ul>
+          </div>
+          <span class="dates">20XX – 20XX</span>
+        </div>
+
+        <!-- Add more job entries here by copying the block above -->
+
+      </div><!-- end experience section -->
+
+      <hr class="rule" />
+
+
+      <!-- ============================================================
+           EDUCATION
+           Same structure as experience — one .resume-entry per degree.
+           ============================================================ -->
+      <div class="resume-section">
+        <p class="label">Education</p>
+
+        <div class="resume-entry">
+          <div>
+            <!-- Degree and field of study -->
+            <h3>Degree, Field of Study</h3>
+            <!-- University name (no location needed unless relevant) -->
+            <p class="company">University Name</p>
+          </div>
+          <span class="dates">20XX</span>
+        </div>
+
+      </div><!-- end education section -->
+
+      <hr class="rule" />
+
+
+      <!-- ============================================================
+           SKILLS
+           Organized into groups. Each .skill-tag is one skill.
+
+           TO ADD A SKILL:
+           Copy a <span class="skill-tag"> and paste it within the
+           appropriate skill group. Change the text.
+
+           TO ADD A NEW SKILL GROUP:
+           Copy an entire .skill-group block (including its label and
+           .skill-tags div) and add it to the grid. Update the label
+           and add relevant tags.
+           ============================================================ -->
+      <div class="resume-section">
+        <p class="label">Skills &amp; Tools</p>
+
+        <div class="skills-grid">
+
+          <div>
+            <p class="skill-group-label">Analysis</p>
+            <div class="skill-tags">
+              <!-- Add or remove skill tags here -->
+              <span class="skill-tag">SQL</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">R</span>
+            </div>
+          </div>
+
+          <div>
+            <p class="skill-group-label">Visualization</p>
+            <div class="skill-tags">
+              <span class="skill-tag">Tableau</span>
+              <span class="skill-tag">Power BI</span>
+              <span class="skill-tag">Looker</span>
+            </div>
+          </div>
+
+          <div>
+            <p class="skill-group-label">Data &amp; Infrastructure</p>
+            <div class="skill-tags">
+              <span class="skill-tag">dbt</span>
+              <span class="skill-tag">Snowflake</span>
+              <span class="skill-tag">BigQuery</span>
+            </div>
+          </div>
+
+          <div>
+            <p class="skill-group-label">Other</p>
+            <div class="skill-tags">
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">Excel</span>
+            </div>
+          </div>
+
+        </div>
+      </div><!-- end skills section -->
+
+      <hr class="rule" />
+
+
+      <!-- ============================================================
+           CONTACT
+           Simple contact info at the bottom of the resume page.
+           Update each value with your real information.
+           ============================================================ -->
+      <div class="resume-section">
+        <p class="label">Contact</p>
+
+        <div class="contact-row">
+          <span class="contact-key">Email</span>
+          <a class="contact-val" href="mailto:tyleramcdonald1@gmail.com">tyleramcdonald1@gmail.com</a>
+        </div>
+
+        <div class="contact-row">
+          <span class="contact-key">LinkedIn</span>
+          <a class="contact-val" href="https://linkedin.com/in/tylerallenmcdonald" target="_blank" rel="noopener">
+            linkedin.com/in/tylerallenmcdonald
+          </a>
+        </div>
+
+        <div class="contact-row">
+          <span class="contact-key">GitHub</span>
+          <a class="contact-val" href="https://github.com/tylerallenmcdonald" target="_blank" rel="noopener">
+            github.com/tylerallenmcdonald
+          </a>
+        </div>
+
+        <div class="contact-row">
+          <span class="contact-key">Website</span>
+          <a class="contact-val" href="https://tylerallenmcdonald.com">tylerallenmcdonald.com</a>
+        </div>
+
+      </div><!-- end contact section -->
+
+    </div>
+  </main>
+
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Tyler Allen McDonald</p>
+      <div class="footer-links">
+        <a href="https://github.com/tylerallenmcdonald" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/tylerallenmcdonald" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    function toggleNav() {
+      document.getElementById('nav-links').classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>

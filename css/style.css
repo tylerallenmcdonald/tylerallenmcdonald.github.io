@@ -1,0 +1,942 @@
+/* ============================================================
+   TYLER ALLEN MCDONALD — style.css
+   This file controls how every page looks.
+
+   HOW THIS FILE IS ORGANIZED:
+   1. Fonts         — importing typefaces from Google
+   2. Variables     — colors, sizes you can change in one place
+   3. Reset         — clearing browser default styles
+   4. Base          — basic rules for text, links, images
+   5. Layout        — page structure and containers
+   6. Navigation    — the top nav bar
+   7. Footer        — the bottom bar
+   8. Typography    — headings and text styles
+   9. Buttons       — reusable button styles
+   10. Home page    — styles unique to index.html
+   11. About page   — styles unique to about.html
+   12. Work page    — styles unique to work.html
+   13. Resume page  — styles unique to resume.html
+   14. Bookmarks    — styles unique to bookmarks.html
+   15. Responsive   — adjustments for small screens (phones)
+   ============================================================ */
+
+
+/* ============================================================
+   1. FONTS
+   We're importing two weights of "DM Sans" from Google Fonts.
+   DM Sans is clean, modern, and highly readable.
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+
+
+/* ============================================================
+   2. VARIABLES
+   CSS variables let you define values once and reuse them
+   everywhere. To change a color across the whole site, just
+   update it here.
+
+   HOW TO READ THESE:
+   --variable-name: value;
+
+   HOW TO USE IN CSS:
+   color: var(--ink);
+   ============================================================ */
+:root {
+  /* --- Colors --- */
+  --ink:          #1a1a18;   /* Main text color (near-black) */
+  --ink-muted:    #6b6b66;   /* Secondary text (gray) */
+  --ink-faint:    #a8a8a2;   /* Subtle text, labels (light gray) */
+  --paper:        #faf9f7;   /* Page background (warm off-white) */
+  --paper-mid:    #f0ede8;   /* Slightly darker off-white, for cards/sections */
+  --rule:         #e4e2dc;   /* Divider lines */
+
+  /* Blue — used for links, accents, and structural highlights */
+  /* To make the blue lighter or darker, adjust these hex values */
+  --blue:         #2c5f8a;   /* Main blue */
+  --blue-light:   #dce8f2;   /* Very light blue, for backgrounds */
+  --blue-dark:    #1a3d5c;   /* Darker blue, for hover states */
+
+  /* Orange — used sparingly to draw attention to key elements */
+  /* To change the accent color, update these two values */
+  --orange:       #c97a4a;   /* Muted, warm orange */
+  --orange-light: #f5ece3;   /* Very light orange, for backgrounds */
+
+  /* --- Typography --- */
+  --font: 'DM Sans', system-ui, sans-serif; /* One font used everywhere */
+
+  /* --- Sizes --- */
+  --max-width: 740px;  /* Maximum width of page content — increase to widen layout */
+  --nav-height: 60px;  /* Height of the navigation bar */
+}
+
+
+/* ============================================================
+   3. RESET
+   Browsers apply their own default styles. This clears them
+   so we start from a clean slate.
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box; /* Makes sizing more predictable */
+  margin: 0;
+  padding: 0;
+}
+
+
+/* ============================================================
+   4. BASE STYLES
+   Rules that apply to the whole page unless overridden.
+   ============================================================ */
+html {
+  font-size: 17px;        /* Base font size — everything else scales from this */
+  scroll-behavior: smooth; /* Smooth scrolling when clicking anchor links */
+}
+
+body {
+  font-family: var(--font);
+  font-weight: 300;         /* Light weight for body text */
+  color: var(--ink);
+  background-color: var(--paper);
+  line-height: 1.75;        /* Space between lines — increase for more breathing room */
+  -webkit-font-smoothing: antialiased; /* Crisper text on Mac/iOS */
+}
+
+/* Links */
+a {
+  color: var(--blue);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Images — prevents them from overflowing their containers */
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+
+/* Horizontal divider lines (used with <hr class="rule">) */
+hr.rule {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 2.5rem 0;
+}
+
+
+/* ============================================================
+   5. LAYOUT
+   Controls the overall structure of every page.
+   ============================================================ */
+
+/* .container centers content and limits its maximum width */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;     /* Centers the container horizontally */
+  padding: 0 2rem;    /* 2rem padding on left and right sides */
+}
+
+/* .page-content wraps the main content of each page */
+/* padding-top makes room for the fixed navigation bar */
+.page-content {
+  padding-top: calc(var(--nav-height) + 4rem); /* Space below nav + extra breathing room */
+  padding-bottom: 6rem;
+  min-height: 100vh; /* Page is at least as tall as the viewport */
+}
+
+
+/* ============================================================
+   6. NAVIGATION
+   The fixed nav bar at the top of every page.
+   position: fixed keeps it visible as you scroll.
+   ============================================================ */
+nav {
+  position: fixed;      /* Stays at top even when scrolling */
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-height);
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
+  z-index: 100;         /* Sits on top of all other content */
+  display: flex;
+  align-items: center;
+}
+
+/* The accent bar — the thin colored line at the very top of the page */
+/* To change its colors, update the two hex values in the gradient */
+nav::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--blue) 65%, var(--orange) 100%);
+}
+
+/* Inner nav layout: name on left, links on right */
+nav .container {
+  width: 100%;
+  max-width: var(--max-width);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Your name in the top left */
+.nav-name {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: 0.01em;
+}
+.nav-name:hover {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+/* The list of page links on the right */
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+  list-style: none; /* Removes bullet points from the list */
+}
+
+/* Individual nav link */
+.nav-links a {
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.nav-links a:hover {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+/* The active link — underlined to show which page you're on */
+/* In each HTML file, the current page's link has class="active" */
+.nav-links a.active {
+  color: var(--ink);
+  border-bottom: 1.5px solid var(--orange); /* Orange underline on active page */
+  padding-bottom: 1px;
+}
+
+/* Mobile menu toggle button — hidden on desktop, shown on small screens */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: var(--ink);
+}
+.nav-toggle span {
+  display: block;
+  width: 20px;
+  height: 1.5px;
+  background: currentColor;
+  margin: 5px 0;
+}
+
+
+/* ============================================================
+   7. FOOTER
+   The bar at the bottom of every page.
+   ============================================================ */
+footer {
+  border-top: 1px solid var(--rule);
+  padding: 1.75rem 0;
+}
+
+footer .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+footer p {
+  font-size: 0.78rem;
+  color: var(--ink-faint);
+  margin: 0;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  font-size: 0.78rem;
+  color: var(--ink-faint);
+}
+.footer-links a:hover {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+
+/* ============================================================
+   8. TYPOGRAPHY HELPERS
+   Reusable text styles used across multiple pages.
+   ============================================================ */
+
+/* Small uppercase label — used above section titles */
+/* Example: <p class="label">Projects</p> */
+.label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 0.5rem;
+}
+
+/* Standard headings */
+h1 {
+  font-size: 2.4rem;
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+}
+h3 {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+
+/* Body paragraph */
+p {
+  margin-bottom: 1.1rem;
+}
+
+
+/* ============================================================
+   9. BUTTONS
+   Reusable button styles. Apply class="btn" to any <a> tag
+   to make it look like a button.
+   ============================================================ */
+
+/* Standard outlined button */
+.btn {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 0.6rem 1.3rem;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  background: transparent;
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn:hover {
+  background: var(--ink);
+  color: var(--paper);
+  text-decoration: none;
+}
+
+/* Blue filled button */
+.btn-blue {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+.btn-blue:hover {
+  background: var(--blue);
+  color: var(--paper);
+}
+
+
+/* ============================================================
+   10. HOME PAGE (index.html)
+   Styles that only apply to the home page.
+   ============================================================ */
+
+/* The main intro section */
+.home-intro {
+  padding-top: calc(var(--nav-height) + 4rem);
+  padding-bottom: 3.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+/* Small line above the main headline */
+.home-intro .eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 1rem;
+}
+
+/* Main headline on the home page */
+/* To change the size, adjust font-size */
+.home-intro h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+/* The blue highlight on the name in the headline */
+/* Applied with <span class="highlight"> in the HTML */
+.home-intro h1 .highlight {
+  color: var(--blue);
+}
+
+/* The short welcome paragraph */
+.home-intro .welcome-text {
+  font-size: 1rem;
+  color: var(--ink-muted);
+  max-width: 460px;
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+
+/* The two-column section below the intro: contact info + photo */
+.home-lower {
+  padding: 3rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 3rem;
+  align-items: start;
+}
+
+/* Contact info section */
+.contact-block .contact-title {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 0.5rem;
+}
+
+/* Each row in the contact list */
+.contact-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.6rem 0;
+  border-top: 1px solid var(--rule);
+  font-size: 0.9rem;
+}
+.contact-row:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+/* The "Email", "LinkedIn", "GitHub" label on each row */
+.contact-row .contact-key {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  min-width: 70px;  /* Keeps labels aligned — increase if a label is longer */
+  flex-shrink: 0;
+}
+
+/* The actual contact value (email address, URL, etc.) */
+.contact-row .contact-val {
+  color: var(--blue);
+  font-size: 0.88rem;
+  word-break: break-all; /* Prevents long email/URL from overflowing */
+}
+
+/* Photo placeholder — replace with a real <img> tag when you have a photo */
+/* See the HTML comment in index.html for instructions */
+.photo-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.photo-placeholder {
+  background: var(--blue-light);
+  border: 1px solid #b8d0e5;
+  aspect-ratio: 3 / 4;  /* Portrait format — change to 1/1 for a square */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  color: var(--blue);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Caption below the photo */
+.photo-caption {
+  font-size: 0.78rem;
+  color: var(--ink-faint);
+  text-align: center;
+}
+
+
+/* ============================================================
+   11. ABOUT PAGE (pages/about.html)
+   ============================================================ */
+
+/* Two-column layout: main content on left, sidebar on right */
+.about-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Left column is wider */
+  gap: 4rem;
+  margin-top: 2rem;
+}
+
+/* Each section in the about page body */
+.about-section {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+.about-section:last-child {
+  border-bottom: none;
+}
+
+/* The section title (e.g. "Background", "Outside Work") */
+.about-section h2 {
+  font-size: 1.2rem;
+  color: var(--blue);         /* Blue section headings */
+  margin-bottom: 0.75rem;
+}
+
+/* Placeholder text style — shown until you write your own content */
+.placeholder-text {
+  color: var(--ink-faint);
+  font-style: italic;
+  font-size: 0.9rem;
+  padding: 1rem;
+  border-left: 2px solid var(--orange); /* Orange left border to highlight placeholders */
+  background: var(--orange-light);
+  margin-bottom: 0;
+}
+
+/* The sidebar items on the right */
+.sidebar-block {
+  margin-bottom: 2rem;
+}
+
+/* List of interests in the sidebar */
+.interests-list {
+  list-style: none;
+  margin-top: 0.25rem;
+}
+.interests-list li {
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--rule);
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.interests-list li:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+/* Orange dot before each interest item */
+.interests-list li::before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--orange);
+  flex-shrink: 0;
+}
+
+/* Photo grid — 2x2 grid of photos on the about page */
+/* To add photos, replace the photo-frame divs with <img> tags */
+.photo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+/* Individual photo frame placeholder */
+.photo-frame {
+  background: var(--paper-mid);
+  border: 1px solid var(--rule);
+  aspect-ratio: 4 / 3; /* Landscape format — change to 1/1 for square */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-faint);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+
+/* ============================================================
+   12. WORK PAGE (pages/work.html)
+   ============================================================ */
+
+/* Each project is a "card" — a row with project info */
+.project-card {
+  padding: 2rem 0;
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 1fr auto; /* Info on left, year on right */
+  gap: 1rem;
+  align-items: start;
+}
+.project-card:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+/* The row of tags above the project title (e.g. "SQL · Tableau") */
+.project-meta {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.4rem;
+  flex-wrap: wrap;
+}
+
+/* Individual tag pill (e.g. "SQL") */
+/* To add a new tag, copy a <span class="tag"> in the HTML */
+.tag {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--blue);
+  background: var(--blue-light);
+  padding: 0.2rem 0.55rem;
+}
+
+.project-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.4rem;
+}
+
+.project-card p {
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  margin-bottom: 0.6rem;
+}
+
+/* The "View on GitHub →" link below each project description */
+.project-link {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--orange); /* Orange to draw the eye */
+}
+.project-link:hover {
+  color: var(--blue);
+}
+
+/* The year label on the right side of each project card */
+.project-year {
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+  font-weight: 300;
+  white-space: nowrap;
+  padding-top: 0.2rem;
+}
+
+/* The blue callout box at the bottom of the work page */
+.github-callout {
+  margin-top: 3rem;
+  padding: 1.75rem 2rem;
+  background: var(--blue-light);
+  border-left: 3px solid var(--blue); /* Blue left border accent */
+}
+
+.github-callout p {
+  font-size: 0.92rem;
+  color: var(--ink-muted);
+  margin-bottom: 1rem;
+}
+
+
+/* ============================================================
+   13. RESUME PAGE (pages/resume.html)
+   ============================================================ */
+
+/* Section grouping (Experience, Education, Skills) */
+.resume-section {
+  margin: 2rem 0;
+}
+
+/* Each individual job / education entry */
+.resume-entry {
+  display: grid;
+  grid-template-columns: 1fr auto; /* Content left, dates right */
+  gap: 0.5rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--rule);
+}
+.resume-entry:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+/* Job title */
+.resume-entry h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.15rem;
+}
+
+/* Company name and location */
+.resume-entry .company {
+  font-size: 0.88rem;
+  color: var(--blue);  /* Company name in blue */
+  margin-bottom: 0.5rem;
+}
+
+/* Date range (right side of each entry) */
+.resume-entry .dates {
+  font-size: 0.8rem;
+  color: var(--ink-faint);
+  white-space: nowrap;
+  font-weight: 300;
+}
+
+/* Bullet points under each job */
+.resume-entry ul {
+  font-size: 0.88rem;
+  color: var(--ink-muted);
+  padding-left: 1.1rem;
+  margin-top: 0.4rem;
+}
+.resume-entry li {
+  margin-bottom: 0.3rem;
+}
+
+/* Skills grid — two columns of skill groups */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 2.5rem;
+  margin-top: 1.25rem;
+}
+
+/* Skill group heading (e.g. "Analysis", "Visualization") */
+.skill-group-label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 0.6rem;
+}
+
+/* Wrapper for skill tags */
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+/* Individual skill tag (e.g. "SQL") */
+/* To add a new skill, copy a <span class="skill-tag"> in the HTML */
+.skill-tag {
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+  border: 1px solid var(--rule);
+  padding: 0.25rem 0.65rem;
+  background: var(--paper-mid);
+}
+
+/* The download PDF button row */
+.resume-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+
+/* ============================================================
+   14. BOOKMARKS PAGE (pages/bookmarks.html)
+   ============================================================ */
+
+/* Filter buttons at the top (All, Article, Music, etc.) */
+.bookmark-filters {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 1.5rem 0 2rem;
+}
+
+/* Each filter button */
+/* The active filter gets class="filter-btn active" */
+.filter-btn {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--rule);
+  background: transparent;
+  color: var(--ink-muted);
+  cursor: pointer;
+}
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+/* Each bookmark entry */
+.bookmark-item {
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: auto 1fr; /* Type tag on left, content right */
+  gap: 0 1.25rem;
+}
+.bookmark-item:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+/* The category tag on the left (e.g. "Article", "Music") */
+/* To change a category color, update its background color here */
+.bookmark-type {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  height: fit-content;
+  margin-top: 0.25rem;
+  white-space: nowrap;
+}
+
+/* Category color coding — edit these to change tag colors */
+.bookmark-type.article  { background: var(--blue-light);   color: var(--blue); }
+.bookmark-type.music    { background: var(--orange-light);  color: var(--orange); }
+.bookmark-type.video    { background: #f0ede8;              color: #7a5c3a; }
+.bookmark-type.art      { background: #edf2e8;              color: #4a6e36; }
+.bookmark-type.other    { background: var(--paper-mid);     color: var(--ink-muted); }
+
+/* Bookmark title (the clickable link) */
+.bookmark-title {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 0.25rem;
+  line-height: 1.4;
+}
+.bookmark-title:hover {
+  color: var(--blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* The source / creator name (e.g. "The Atlantic", "Spotify") */
+.bookmark-source {
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+  margin-bottom: 0.3rem;
+}
+
+/* Optional short note about why you're sharing it */
+.bookmark-note {
+  font-size: 0.88rem;
+  color: var(--ink-muted);
+  font-style: italic;
+  margin: 0;
+}
+
+/* Date added */
+.bookmark-date {
+  font-size: 0.75rem;
+  color: var(--ink-faint);
+  margin-top: 0.4rem;
+}
+
+
+/* ============================================================
+   15. RESPONSIVE — SMALL SCREENS
+   These rules only apply when the screen is 640px wide or
+   narrower (i.e., most phones). They override the rules above.
+   ============================================================ */
+@media (max-width: 640px) {
+
+  /* Reduce base font size slightly on small screens */
+  html { font-size: 16px; }
+
+  /* Stack nav links vertically when the toggle is open */
+  .nav-links {
+    display: none; /* Hidden by default on mobile */
+  }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+    padding: 1.25rem 2rem 1.75rem;
+    gap: 1rem;
+  }
+
+  /* Show the hamburger toggle button */
+  .nav-toggle { display: block; }
+
+  /* Reduce side padding on small screens */
+  .container { padding: 0 1.25rem; }
+
+  /* Smaller headings on phones */
+  h1 { font-size: 1.9rem; }
+  .home-intro h1 { font-size: 2.1rem; }
+
+  /* Stack home page columns vertically */
+  .home-lower {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  /* Stack about page columns vertically */
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  /* Stack skills grid vertically */
+  .skills-grid { grid-template-columns: 1fr; }
+
+  /* Stack photo grid vertically */
+  .photo-grid { grid-template-columns: 1fr; }
+
+  /* Stack project cards vertically */
+  .project-card { grid-template-columns: 1fr; }
+
+  /* Stack resume entries vertically */
+  .resume-entry { grid-template-columns: 1fr; }
+  .resume-entry .dates { margin-top: -0.5rem; }
+
+  /* Stack bookmark items */
+  .bookmark-item {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  /* Less top padding on page content */
+  .page-content {
+    padding-top: calc(var(--nav-height) + 2.5rem);
+  }
+}
